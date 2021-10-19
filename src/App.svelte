@@ -4,6 +4,7 @@
     import Users from "./components/Users.svelte";
 
 	export let username: string|null;
+    export let color: string|null;
 	
 </script>
 
@@ -19,11 +20,13 @@
 		</div>
 		<div class="wrapper">
 			{#if username === null}
-            <Login bind:username="{username}"/>
+            <Login bind:username="{username}" bind:color="{color}"/>
 			{:else}
-			<Chat username="{username}"/>
+            <div class="split-container">
+			    <Chat username="{username}" color="{color}"/>
+                <Users username="{username}" color="{color}"/>
+            </div>
 			{/if}
-            <!-- <Users/> -->
 		</div>
 	</main>
 </body>
@@ -47,6 +50,13 @@
 		position: relative;
 		top: 5rem;
 	}
+    .split-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        position: relative;
+        width: 100%;
+    }
 	.title-word {
         animation: color-animation 4s linear infinite;
     }

@@ -1,10 +1,12 @@
+<!--
+    This module handles chat layout and chat functionality
+-->
 <script lang="ts">
     import { afterUpdate  } from 'svelte'; 
-    import { onMount } from 'svelte';
 
     export let username: string|null;
+    export let color: string|null;
 
-    let color = "#d5005d";
     let input = "";
     let messages = [];
 
@@ -38,58 +40,32 @@
         last_bb_height = height;
     });
 
-    let users = [];
-    $: usersSorted = users.sort((a, b) => a.toLocaleLowerCase().localeCompare(b.toLocaleLowerCase()));
-    onMount(() => {
-        users = [username,...users];
-    })
-
 </script>
 
 
-<div class="split-container">
-    <div class="chat">
-        <div class="msgs-container">
-            <div class="messages">
-                {#each messages as message}
-                <div class="message">
-                    <span class="username" style="{"color: " + color + ";"}">{username}</span><br>
-                    <div class="message-text-container">
-                        <span class="message-text">{message}</span>
-                    </div>
+<div class="chat">
+    <div class="msgs-container">
+        <div class="messages">
+            {#each messages as message}
+            <div class="message">
+                <span class="username" style="{"color: " + color + ";"}">{username}</span><br>
+                <div class="message-text-container">
+                    <span class="message-text">{message}</span>
                 </div>
-                {/each}
             </div>
-        </div>
-        <div class="input">
-            <input bind:value="{input}" maxlength="1000" placeholder="write your message here"/>
-            <button on:click={send}>send</button>
-            <span>as</span>
-            <span style="{"color: " + color + "; font-weight: 600;"}">{username}</span>
-        </div>
-    </div>
-    <div class="info">
-        <div>
-            <img class="nyan" alt="nyan" src="nyan-cat.gif">
-        </div>
-        <span style="color: #ff3e00; font-size: 1.5rem; font-weight: 600;">Users:</span>
-        <div class="register">
-            {#each usersSorted as user}
-            <span style="{"color: " + color + ";"}">{user}</span><br>
             {/each}
         </div>
+    </div>
+    <div class="input">
+        <input bind:value="{input}" maxlength="1000" placeholder="write your message here"/>
+        <button on:click={send}>send</button>
+        <span>as</span>
+        <span style="{"color: " + color + "; font-weight: 600;"}">{username}</span>
     </div>
 </div>
 
 
 <style lang="scss">
-    .split-container {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        position: relative;
-        width: 100%;
-    }
     .chat {
         display: flex;
         flex-direction: column;
@@ -122,20 +98,8 @@
     .message-text-container {
         padding-left: 1em;
     }
-    .info {
-        background-color: #1e1e1c;
-        height: 35rem;
-        display: flex;
-        flex-direction: column;
-    }
     .input{
         padding: 1rem;
         font-size: 1.5rem;
-    }
-    .register{
-        color: #ff3e00;
-        font-size: 1.5rem;
-        font-weight: 600;
-        overflow: auto;
     }
 </style>
