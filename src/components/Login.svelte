@@ -2,34 +2,75 @@
     This module handles the login screen and username choice
 -->
 <script lang="ts">
-	export let username: string|null;
-    export let color: string|null;
-	let user = "";
-    let clr = "";
+	import { onMount } from 'svelte';
+	import Color from './Color.svelte';
 
-    function submit() {
-        username = user;
-        if (clr == "") {
-            color = "#d5005d";
-        } else {
-            color = clr;
-        }
-    }
+  export let username: string | null;
+  export let color: string|null;
+	export let colors: [string, string][] = [
+		["#0fbddf", "Blau"],
+		["#9fdf9f", "Grün"],
+		["#8cd9c6", "Türkis"],
+		["#af9fdf", "Lila"],
+		["#df9f9f", "Rosa"],
+		["goldenrod", "Gold"],
+		// ["blueviolet", "Nice"],
+	];
+
+  let user = "";
+
+	onMount(() => {
+		color = color ?? colors[Math.floor(Math.random() * colors.length)][0];
+	});
 </script>
 
 <div class="container">
-    <span style="font-size: 2.5rem;">please enter your username and preferred color</span><br><br>
-    <input bind:value="{user}" maxlength="30" placeholder="Username">
-    <input bind:value="{clr}" maxlength="30" placeholder="Color (e.g. 'red'/'#3d8dae')">
-    <button on:click="{submit}">confirm</button><br>
-    <img alt="lazor" src="lazor-dude.gif">
+  <div class="login-container">
+		<span style="font-size: 2.5rem;">
+			please enter your username and preferred color
+		</span>
+		<input bind:value={user} minlength="4" maxlength="30" placeholder="Username" />
+		<div><Color bind:colors="{colors}" bind:color="{color}"/></div>
+		<button on:click={() => username = user.trim().length > 3 ? user : null}>confirm</button>
+	</div>
+  <img alt="lazor" src="lazor-dude.gif" />
 </div>
+	
+
+<!-- <form>
+    <select id="custom-select" style="color: {color};" bind:value="{color}">
+			{#each colors as [cl, name]}		
+				<option style="color: {cl};" value="{cl}">{name}</option>
+			{/each}
+    </select>
+  </form> -->
+
 
 <style lang="scss">
-    .container {
-        color: #ff3e00;
-        font-size: 2rem;
-        font-weight: 500;
-        user-select: none;
-    }
+  .container {
+    color: #ff3e00;
+    font-size: 2rem;
+    font-weight: 500;
+    user-select: none;
+
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+  }
+	.login-container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;& > * {
+			margin-bottom: 1em;
+		}
+	}
+  #custom-select {
+    font-size: 1.5rem;
+    padding: 1em 5em 1em 1.5em;
+    background: #1e1e2f;
+    color: #fff7d6;
+    border: 0;
+  }
 </style>

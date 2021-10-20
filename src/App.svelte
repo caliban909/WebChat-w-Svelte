@@ -2,6 +2,7 @@
 	import Login from "./components/Login.svelte";
 	import Chat from "./components/Chat.svelte";
     import Users from "./components/Users.svelte";
+    import Color from "./components/Color.svelte";
 
 	export let username: string|null;
     export let color: string|null;
@@ -21,6 +22,7 @@
 		<div class="wrapper">
 			{#if username === null}
             <Login bind:username="{username}" bind:color="{color}"/>
+            <!-- <Color/> -->
 			{:else}
             <div class="split-container">
 			    <Chat username="{username}" color="{color}"/>
