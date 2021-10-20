@@ -8,12 +8,12 @@
   export let username: string | null;
   export let color: string|null;
 	export let colors: [string, string][] = [
-		["#0fbddf", "Blau"],
-		["#9fdf9f", "Grün"],
-		["#8cd9c6", "Türkis"],
-		["#af9fdf", "Lila"],
-		["#df9f9f", "Rosa"],
-		["goldenrod", "Gold"],
+    ["#0fbddf", "Blue"],
+    ["#9fdf9f", "Green"],
+    ["#8cd9c6", "Turquoise"],
+    ["#af9fdf", "Purple"],
+    ["#df9f9f", "Pink"],
+    ["goldenrod", "Gold"],
 		// ["blueviolet", "Nice"],
 	];
 
