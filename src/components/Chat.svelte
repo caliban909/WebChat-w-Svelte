@@ -57,7 +57,7 @@
         </div>
     </div>
     <div class="input">
-        <input bind:value="{input}" maxlength="1000" placeholder="write your message here"/>
+        <input bind:value={input} maxlength="1000" placeholder="write your message here"/>
         <button on:click={send}>send</button>
         <span>as</span>
         <span style="{"color: " + color + "; font-weight: 600;"}">{username}</span>
