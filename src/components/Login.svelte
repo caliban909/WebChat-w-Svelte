@@ -18,10 +18,10 @@
 </script>
 
 <div class="container">
-    <span style="font-size: 2.5rem;">please enter your username and preferred color</span><br /><br />
+    <span style="font-size: 2.5rem;">please enter your username and preferred color</span><br/><br/>
     <input bind:value={user} maxlength="30" placeholder="Username" />
-    <input bind:value={clr} maxlength="30" placeholder="Color (e.g. 'red'/'#3d8dae')"/>
-    <button on:click={submit}>confirm</button><br />
+    <input bind:value={clr} maxlength="30" placeholder="Color (e.g. 'red'/'#3d8dae')" />
+    <button on:click={submit}>confirm</button><br/>
     <img alt="lazor" src="lazor-dude.gif" />
 </div>
 
