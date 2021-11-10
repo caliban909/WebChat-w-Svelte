@@ -3,8 +3,10 @@
 -->
 <script lang="ts">
     import Color from "./Color.svelte";
+
     export let username: string | null;
     export let color: string | null;
+    
     let user = "";
 
     function submit() {
