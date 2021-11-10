@@ -22,6 +22,7 @@
     <span style="color: #ff3e00; font-size: 1.5rem; font-weight: 600;">Users:</span>
     <div class="register">
         {#each usersSorted as user}
+        <img class="icon" alt="doomer" src="doomer.jpg">
         <span style="{"color: " + color + ";"}">{user}</span><br>
         {/each}
     </div>
@@ -39,5 +40,9 @@
         font-size: 1.5rem;
         font-weight: 600;
         overflow: auto;
+    }
+    .icon{
+        height: 1.5rem;
+        width: 1.5rem;
     }
 </style>
