@@ -48,6 +48,7 @@
         <div class="messages">
             {#each messages as message}
             <div class="message">
+                <img class="icon" src="doomer.jpg" alt="doomer">
                 <span class="username" style="{"color: " + color + ";"}">{username}</span><br>
                 <div class="message-text-container">
                     <span class="message-text">{message}</span>
@@ -101,5 +102,9 @@
     .input{
         padding: 1rem;
         font-size: 1.5rem;
+    }
+    .icon{
+        height: 2rem;
+        width: 2rem;
     }
 </style>
