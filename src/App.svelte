@@ -1,6 +1,7 @@
 <!--
     Main App
 -->
+
 <script lang="ts">
     import Login from "./components/Login.svelte";
     import Chat from "./components/Chat.svelte";
