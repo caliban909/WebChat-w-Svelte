@@ -11,6 +11,7 @@
     export let color: string | null;
 </script>
 
+
 <body>
     <main>
         <div class="container">
@@ -33,6 +34,7 @@
         </div>
     </main>
 </body>
+
 
 <style lang="scss">
     body {

@@ -5,7 +5,6 @@
 <script lang="ts">
     export let color: string | null;
     export let colors: [string, string][] = [
-
     ["#0fbddf", "Blue"],
     ["#9fdf9f", "Green"],
     ["#8cd9c6", "Turquoise"],
@@ -16,7 +15,7 @@
     ];
 </script>
 
-<!--html-->
+
 <div class="container">
     {#each colors as [cl, name]}
         <button class="cell" on:click="{() => color = cl}" >{name}</button><br />
