@@ -18,7 +18,7 @@
 
 <div class="container">
     {#each colors as [cl, name]}
-        <button class="cell" on:click="{() => color = cl}" >{name}</button><br />
+        <span class="cell" on:click="{() => color = cl}" >{name}</span><br />
     {/each}
 </div>
 
