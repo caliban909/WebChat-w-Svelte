@@ -12,6 +12,12 @@
     function submit() {
         username = user;
     }
+
+    window.addEventListener("keyup", function(event) {
+        if(event.key === "Enter"){
+            submit();
+        }
+    })
 </script>
 
 

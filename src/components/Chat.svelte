@@ -40,6 +40,12 @@
         last_bb_height = height;
     });
 
+    window.addEventListener("keyup", function(event) {
+        if(event.key === "Enter"){
+            send();
+        }
+    })
+
 </script>
 
 

@@ -18,7 +18,7 @@
 
 <div class="container">
     {#each colors as [cl, name]}
-        <span class="cell" on:click="{() => color = cl}" >{name}</span><br />
+        <span class="cell" on:click="{() => color = cl}" style="background-color : {cl}">{name}</span><br />
     {/each}
 </div>
 
@@ -29,7 +29,8 @@
         justify-content: space-evenly;
     }
     .cell{
-        height: 4rem;
+        color: ghostwhite;
+        height: 3rem;
         width: 10rem;
     }
 </style>
