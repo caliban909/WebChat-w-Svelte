@@ -1,4 +1,4 @@
-//server file for running webserver with "node server.js"  192.168.136.228
+//server file for running webserver with command: "node server.js"  192.168.136.228
 
 const express = require("express");
 const http = require("http");

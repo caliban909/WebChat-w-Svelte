@@ -16,10 +16,10 @@
     <main>
         <div class="container">
             <h2 class="title">
-                <span class="title-word title-word-1">Max</span>
-                <span class="title-word title-word-2">Test</span>
-                <span class="title-word title-word-3">Web</span>
-                <span class="title-word title-word-4">Chat</span>
+                <span class="title-word title-word-1">One</span>
+                <span class="title-word title-word-2">Two</span>
+                <span class="title-word title-word-3">Three</span>
+                <span class="title-word title-word-4">FOUR!!!</span>
             </h2>
         </div>
         <div class="wrapper">

@@ -31,7 +31,7 @@
 
 <style lang="scss">
     .info {
-        background-color: #1e1e1c;
+        background-color: #202124;
         height: 35rem;
         display: flex;
         flex-direction: column;

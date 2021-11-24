@@ -81,7 +81,7 @@
     }
     .msgs-container {
         position: relative;
-        background-color: #1e1e2f;
+        background-color: #202124;
         height: 35rem;
         width: 100%;
         padding-right: 0;
