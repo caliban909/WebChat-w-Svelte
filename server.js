@@ -1,19 +1,24 @@
 //server file for running webserver with "node server.js"  192.168.136.228
 
-import WebSocket, {WebSocketServer} from 'ws';
+const express = require("express");
+const http = require("http");
+const WebSocket = require("ws");
+const WebSocketServer = require("ws/lib/websocket-server");
 
-let port = 9999;
+const port = 6969;
+const server = http.createServer(express);
+const wss = new WebSocketServer({server});
 
-const wss = new WebSocketServer({
-    port: 9999,
-    origin
-});
+wss.on("connection", function connection(ws) {
+    ws.on("message", function incoming(data) {
+        wss.clients.forEach(function each(client) {
+            if (client !== ws && client.readyState === WebSocket.OPEN) {
+                client.send(data);
+            }
+        })
+    })
+}) 
 
-console.log("server is listening on port %d", port);
-
-wss.on('connection', function connection(ws) {
-    ws.on('message', function incoming(message) {
-        console.log('received: %s', message);
-    });
-    ws.send('something');
-});
+server.listen(port, function() {
+    console.log("Server is listening on ${port}!")
+})
