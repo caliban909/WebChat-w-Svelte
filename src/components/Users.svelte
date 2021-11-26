@@ -17,6 +17,7 @@
 
 <div class="info">
     <div>
+        <!-- <img id="reh" alt="reg" src="reh.png" /> -->
         <img class="nyan" alt="nyan" src="nyan-cat.gif">
     </div>
     <span style="color: #ff3e00; font-size: 1.5rem; font-weight: 600;">Users:</span>

@@ -11,7 +11,9 @@
     export let color: string | null;
 </script>
 
-
+<svelte:head>
+    <title>Web-Chat</title>
+</svelte:head>
 <body>
     <main>
         <div class="container">

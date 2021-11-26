@@ -39,7 +39,7 @@ import { onMount } from "svelte";
     <span style="font-size: 2.5rem;">please enter your username and choose your preferred color</span><br/><br/>
     <input bind:value={user} maxlength="30" placeholder="Username" />
     <div><Color bind:color/></div>
-    <img alt="lazor" src="lazor-dude.gif" /><br/>
+    <img alt="lazor" src="lazor-dude.gif" /><br />
     <button id="confirm" on:click={submit}>confirm</button>
 </div>
 
