@@ -1,22 +1,17 @@
-//server file for running webserver with command: "node server.js"  192.168.136.228
+//server for running app on local machine -node server.js
+const express = require("express");
+const app = express();
+const port = process.env.PORT || 6969;
+//const cors = require("cors");
+const path = require("path");
+//app.use(cors());
 
-import { createServer } from 'https';
-import { WebSocketServer } from 'ws';
+//logic here
 
-const server = createServer({
-  server: httpServer,
-  path: app.path() + "/ws",
+app.use(express.static("public"));
+app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "public", "index.html"));
 });
-const wss = new WebSocketServer({ server });
-
-wss.on('connection', function connection(ws) {
-  new DevToolsBackend().serve(socket);
-  ws.on('message', function message(data) {
-    console.log('received: %s', data);
-  });
-
-  ws.send('something');
+app.listen(port, () => {
+    console.log(`Server is up at port ${port}`);
 });
-
-server.listen(6969);
-console.log("server is listening on port 6969");
