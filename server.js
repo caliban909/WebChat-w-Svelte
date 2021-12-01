@@ -15,16 +15,23 @@ app.use(express.static("public"));
 io.on("connection", function (socket) {
     console.log("connection");
     let addedUser = false;
-    socket.on("add user", function(username, color) {
-        socket.username = username;
-        socket.color = color;
+    socket.on("add user", function(data) {
         addedUser = true;
-        users.push(socket.username);
-        socket.emit("login");
-        socket.broadcast.emit("user joined", socket.username);
+        socket.username = data.username;
+        socket.color = data.color;
+        users.push({
+            username: socket.username,
+            color: socket.color,
+        });
+        console.log(users);
+        socket.broadcast.emit("users", users);
+        socket.emit("users", users);
+        data.username = "system";
+        data.color = "ghostwhite";
+        socket.broadcast.emit("user joined", data);
+        
     });
     socket.on("message", function (data) {
-        console.log(data);
         socket.broadcast.emit("message", {
             username: data.username,
             color: data.color,
@@ -34,6 +41,8 @@ io.on("connection", function (socket) {
     socket.on("disconnect", function () {
         if (addedUser) {
             socket.broadcast.emit("user left", socket.username);
+            users = users.filter( x => x.username != socket.username);
+            socket.broadcast.emit("users", users);
         }
     });
 });

@@ -6,9 +6,12 @@
     import Login from "./components/Login.svelte";
     import Chat from "./components/Chat.svelte";
     import Users from "./components/Users.svelte";
+    import io from "./components/socket.io";
 
     export let username: string | null;
     export let color: string | null;
+    
+    let socket = io();
 </script>
 
 <svelte:head>
@@ -26,11 +29,11 @@
         </div>
         <div class="wrapper">
             {#if username === null}
-                <Login bind:username bind:color />
+                <Login bind:username bind:color {socket} />
             {:else}
                 <div class="split-container">
-                    <Chat {username} {color} />
-                    <Users {username} {color} />
+                    <Chat {username} {color} {socket}/>
+                    <Users {username} {socket}/>
                 </div>
             {/if}
         </div>

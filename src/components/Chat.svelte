@@ -4,18 +4,35 @@
 <script lang="ts">
     import { afterUpdate  } from 'svelte'; 
     import { onMount } from 'svelte';
-    import io from "./socket.io";
+    import { onDestroy } from 'svelte';
+    //import io from "./socket.io";
 
     export let username: string|null;
     export let color: string|null;
-
-    const socket = io();
+    export let socket: any;
+    
     onMount( () => {
+        window.addEventListener("keyup", submitEvent );
         socket.on("message", function(data) {
-            console.log("test");
             addMessage(data);
         });
+        socket.on("user joined", function(data) {
+            addMessage(data);
+        });
+        socket.on("user left", function(data) {
+            let obj = {
+                username: "system",
+                color: "ghostwhite",
+                message: data + " left",
+            }
+            addMessage(obj);
+        });
     });
+
+    onDestroy( () => {
+        window.removeEventListener("keyup", submitEvent );
+    });
+
     let input = "";
     let messages = [];
 
@@ -34,7 +51,6 @@
 
     function addMessage(data){
         let message = data;
-        console.log(message);
         messages = [...messages, message];
         msg_update = true;
     }
@@ -61,11 +77,11 @@
         last_bb_height = height;
     })
 
-    window.addEventListener("keyup", function(event) {
+    function submitEvent(event){
         if(event.key === "Enter"){
             send();
         }
-    })
+    }
 </script>
 
 

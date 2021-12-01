@@ -4,7 +4,10 @@
 <script lang="ts">
     import { onMount } from "svelte";
     import Color from "./Color.svelte";
+    import io from "./socket.io";
+    import { onDestroy } from "svelte";
 
+    export let socket: any;
     export let username: string | null;
     export let color: string | null;
     export let colors: [string, string][] = [
@@ -20,17 +23,30 @@
 
     onMount(() => {
         color = color ?? colors[Math.floor(Math.random() * colors.length)][0];
+        window.addEventListener("keyup", submitEvent);
+    })
+
+    onDestroy(() => {
+        window.removeEventListener("keyup", submitEvent);
     })
 
     function submit() {
+        if (user.replaceAll(/\s+/g,'').length < 2) return;
+        user = user.trim().replaceAll(/\s+/g, ' ');
         username = user;
+        let data = {
+            username: username,
+            color: color,
+            message: user + " joined"
+        }
+        socket.emit("add user", data);
     }
 
-    window.addEventListener("keyup", function(event) {
+    function submitEvent(event){
         if(event.key === "Enter"){
             submit();
         }
-    })
+    }
 </script>
 
 
