@@ -4,7 +4,6 @@
 <script lang="ts">
     import { onMount } from "svelte";
     import Color from "./Color.svelte";
-    import io from "./socket.io";
     import { onDestroy } from "svelte";
 
     export let socket: any;

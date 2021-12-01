@@ -5,7 +5,6 @@
     import { afterUpdate  } from 'svelte'; 
     import { onMount } from 'svelte';
     import { onDestroy } from 'svelte';
-    //import io from "./socket.io";
 
     export let username: string|null;
     export let color: string|null;
