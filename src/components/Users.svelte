@@ -11,7 +11,7 @@
     $: usersSorted = users.sort((a, b) => a.toLocaleLowerCase().localeCompare(b.toLocaleLowerCase()));
     onMount(() => {
         users = [username,...users];
-    })
+    });
 </script>
 
 

@@ -2,8 +2,7 @@
     This module handles the login screen and username choice
 -->
 <script lang="ts">
-import { onMount } from "svelte";
-
+    import { onMount } from "svelte";
     import Color from "./Color.svelte";
 
     export let username: string | null;
@@ -16,7 +15,7 @@ import { onMount } from "svelte";
         ["#FF9901", "Orange"],
         ["#FFFF00", "Gelb"]
     ]
-    
+
     let user = "";
 
     onMount(() => {

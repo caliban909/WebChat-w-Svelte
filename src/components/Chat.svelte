@@ -3,18 +3,39 @@
 -->
 <script lang="ts">
     import { afterUpdate  } from 'svelte'; 
+    import { onMount } from 'svelte';
+    import io from "./socket.io";
 
     export let username: string|null;
     export let color: string|null;
 
+    const socket = io();
+    onMount( () => {
+        socket.on("message", function(data) {
+            console.log("test");
+            addMessage(data);
+        });
+    });
     let input = "";
     let messages = [];
 
     let msg_update = false;
     function send(){
         if(input.length <= 0) return;
-        messages = [...messages, input];
+        let data = {
+            username: username,
+            color: color,
+            message: input
+        }
+        addMessage(data);
+        socket.emit("message", data);
         input = "";
+    }
+
+    function addMessage(data){
+        let message = data;
+        console.log(message);
+        messages = [...messages, message];
         msg_update = true;
     }
 
@@ -45,7 +66,6 @@
             send();
         }
     })
-
 </script>
 
 
@@ -55,9 +75,9 @@
             {#each messages as message}
             <div class="message">
                 <!--<img class="icon" src="doomer.jpg" alt="doomer">-->
-                <span class="username" style="{"color: " + color + ";"}">{username}</span><br>
+                <span class="username" style="{"color: " + message.color + ";"}">{message.username}</span><br>
                 <div class="message-text-container">
-                    <span class="message-text">{message}</span>
+                    <span class="message-text">{message.message}</span>
                 </div>
             </div>
             {/each}
