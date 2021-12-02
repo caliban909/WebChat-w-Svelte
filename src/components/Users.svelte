@@ -7,8 +7,10 @@
     export let username: string|null;
     export let socket: any;
 
+    //initialising local users array
     let users = [];
-    //$: usersSorted = users.sort((a, b) => a.toLocaleLowerCase().localeCompare(b.toLocaleLowerCase()));
+    
+    //code to be executed when module is loaded
     onMount(() => {
         socket.on("users", function(users_){
             console.log("test");
@@ -21,13 +23,11 @@
 
 <div class="info">
     <div>
-        <!-- <img id="reh" alt="reg" src="reh.png" /> -->
         <img class="nyan" alt="nyan" src="nyan-cat.gif">
     </div>
     <span style="color: #ff3e00; font-size: 1.5rem; font-weight: 600;">Users:</span>
     <div class="register">
         {#each users as user}
-        <!--<img class="icon" alt="doomer" src="doomer.jpg">-->
         <span style="color: {user.color};">{user.username}</span><br>
         {/each}
     </div>

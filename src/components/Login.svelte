@@ -10,25 +10,29 @@
     export let username: string | null;
     export let color: string | null;
     export let colors: [string, string][] = [
-        ["#6832FF", "Lila"],
-        ["#0198FF", "Blau"],
-        ["#34FF01", "Grün"],
-        ["#FF0000", "Rot"],
-        ["#FF9901", "Orange"],
-        ["#FFFF00", "Gelb"]
+        ["#0fbddf", "Blue"],
+        ["#9fdf9f", "Green"],
+        ["#8cd9c6", "Turquoise"],
+        ["#af9fdf", "Purple"],
+        ["#df9f9f", "Pink"],
+        ["goldenrod", "Gold"],
+        ["blueviolet", "Nice"],
     ]
 
     let user = "";
 
+    //code to be executed when module is loaded
     onMount(() => {
         color = color ?? colors[Math.floor(Math.random() * colors.length)][0];
         window.addEventListener("keyup", submitEvent);
     })
 
+    //code to be executed when module is unloaded
     onDestroy(() => {
         window.removeEventListener("keyup", submitEvent);
     })
 
+    //function handles username/color selection and sends it to websocket
     function submit() {
         if (user.replaceAll(/\s+/g,'').length < 2) return;
         user = user.trim().replaceAll(/\s+/g, ' ');
@@ -41,6 +45,7 @@
         socket.emit("add user", data);
     }
 
+    //function for event listener || keybind
     function submitEvent(event){
         if(event.key === "Enter"){
             submit();

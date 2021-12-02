@@ -1,4 +1,4 @@
-//server for running app on local machine -node server.js
+//server for running app on local machine -npx nodemon .\server.js
 const express = require("express");
 const app = express();
 const server = require("http").createServer(app);
@@ -8,12 +8,12 @@ const path = require("path");
 const io = require("socket.io")(server);
 app.use(cors());
 
+//initialising server side users array
 let users = [];
 
 app.use(express.static("public"));
 
 io.on("connection", function (socket) {
-    console.log("connection");
     let addedUser = false;
     socket.on("add user", function(data) {
         addedUser = true;
@@ -23,7 +23,6 @@ io.on("connection", function (socket) {
             username: socket.username,
             color: socket.color,
         });
-        console.log(users);
         socket.broadcast.emit("users", users);
         socket.emit("users", users);
         data.username = "system";

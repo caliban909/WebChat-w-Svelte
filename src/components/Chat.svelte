@@ -10,8 +10,10 @@
     export let color: string|null;
     export let socket: any;
     
+    //code to be executed when module is loaded
     onMount( () => {
         window.addEventListener("keyup", submitEvent );
+        //websocket listeners
         socket.on("message", function(data) {
             addMessage(data);
         });
@@ -28,14 +30,16 @@
         });
     });
 
+    //code to be executed when module is unloaded
     onDestroy( () => {
         window.removeEventListener("keyup", submitEvent );
     });
 
     let input = "";
     let messages = [];
-
     let msg_update = false;
+
+    //function handles messages and sends them to the server
     function send(){
         if(input.length <= 0) return;
         let data = {
@@ -48,12 +52,14 @@
         input = "";
     }
 
+    //function adds messages to corresponding array
     function addMessage(data){
         let message = data;
         messages = [...messages, message];
         msg_update = true;
     }
 
+    //checks if msgs is defined
     let msgs = undefined;
     function initCheck() {
         if (msgs === undefined) {
@@ -61,6 +67,7 @@
         }
     }
 
+    //this code handles scrolling of chat window
     let last_height = 0;
     let last_bb_height = 0;
     afterUpdate(() => {
@@ -76,6 +83,7 @@
         last_bb_height = height;
     })
 
+    //function for event listener || keybind
     function submitEvent(event){
         if(event.key === "Enter"){
             send();

@@ -11,6 +11,7 @@
     export let username: string | null;
     export let color: string | null;
     
+    //initialising websocket
     let socket = io();
 </script>
 
