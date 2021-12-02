@@ -1,19 +1,53 @@
+<!--
+    This module handles user-register
+-->
 <script lang="ts">
-    let numbers = [1, 2, 3, 4];
+    import { onMount } from 'svelte';
 
-    function addNumber() {
-        numbers = [...numbers, numbers.length + 1];
-    }
+    export let username: string|null;
+    export let socket: any;
 
-    $: sum = numbers.reduce((t, n) => t + n, 0);
+    //initialising local users array
+    let users = [];
+    
+    //code to be executed when module is loaded
+    onMount(() => {
+        socket.on("users", function(users_){
+            console.log("test");
+            users = users_;
+        })
+        users = [username,...users];
+    });
 </script>
 
-<p>{numbers.join(' + ')} = {sum}</p>
 
-<button on:click={addNumber}>
-    Add a number
-</button>
+<div class="info">
+    <div>
+        <img class="nyan" alt="nyan" src="nyan-cat.gif">
+    </div>
+    <span style="color: #ff3e00; font-size: 1.5rem; font-weight: 600;">Users:</span>
+    <div class="register">
+        {#each users as user}
+        <span style="color: {user.color};">{user.username}</span><br>
+        {/each}
+    </div>
+</div>
+
 
 <style lang="scss">
-
+    .info {
+        background-color: #202124;
+        height: 35rem;
+        display: flex;
+        flex-direction: column;
+    }
+    .register{
+        font-size: 1.5rem;
+        font-weight: 600;
+        overflow: auto;
+    }
+    /*.icon{
+        height: 1.5rem;
+        width: 1.5rem;
+    }*/
 </style>

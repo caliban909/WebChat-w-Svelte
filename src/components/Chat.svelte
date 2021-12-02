@@ -1,21 +1,65 @@
+<!--
+    This module handles chat layout and chat functionality
+-->
 <script lang="ts">
     import { afterUpdate  } from 'svelte'; 
     import { onMount } from 'svelte';
+    import { onDestroy } from 'svelte';
 
     export let username: string|null;
+    export let color: string|null;
+    export let socket: any;
+    
+    //code to be executed when module is loaded
+    onMount( () => {
+        window.addEventListener("keyup", submitEvent );
+        //websocket listeners
+        socket.on("message", function(data) {
+            addMessage(data);
+        });
+        socket.on("user joined", function(data) {
+            addMessage(data);
+        });
+        socket.on("user left", function(data) {
+            let obj = {
+                username: "system",
+                color: "ghostwhite",
+                message: data + " left",
+            }
+            addMessage(obj);
+        });
+    });
 
-    let color = "#d5005d";
+    //code to be executed when module is unloaded
+    onDestroy( () => {
+        window.removeEventListener("keyup", submitEvent );
+    });
+
     let input = "";
     let messages = [];
-
     let msg_update = false;
+
+    //function handles messages and sends them to the server
     function send(){
         if(input.length <= 0) return;
-        messages = [...messages, input];
+        let data = {
+            username: username,
+            color: color,
+            message: input
+        }
+        addMessage(data);
+        socket.emit("message", data);
         input = "";
+    }
+
+    //function adds messages to corresponding array
+    function addMessage(data){
+        let message = data;
+        messages = [...messages, message];
         msg_update = true;
     }
 
+    //checks if msgs is defined
     let msgs = undefined;
     function initCheck() {
         if (msgs === undefined) {
@@ -23,6 +67,7 @@
         }
     }
 
+    //this code handles scrolling of chat window
     let last_height = 0;
     let last_bb_height = 0;
     afterUpdate(() => {
@@ -36,60 +81,41 @@
         
         last_height = msgs.scrollHeight;
         last_bb_height = height;
-    });
-
-    let users = [];
-    $: usersSorted = users.sort((a, b) => a.toLocaleLowerCase().localeCompare(b.toLocaleLowerCase()));
-    onMount(() => {
-        users = [username,...users];
     })
 
+    //function for event listener || keybind
+    function submitEvent(event){
+        if(event.key === "Enter"){
+            send();
+        }
+    }
 </script>
 
 
-<div class="split-container">
-    <div class="chat">
-        <div class="msgs-container">
-            <div class="messages">
-                {#each messages as message}
-                <div class="message">
-                    <span class="username" style="{"color: " + color + ";"}">{username}</span><br>
-                    <div class="message-text-container">
-                        <span class="message-text">{message}</span>
-                    </div>
+<div class="chat">
+    <div class="msgs-container">
+        <div class="messages">
+            {#each messages as message}
+            <div class="message">
+                <!--<img class="icon" src="doomer.jpg" alt="doomer">-->
+                <span class="username" style="{"color: " + message.color + ";"}">{message.username}</span><br>
+                <div class="message-text-container">
+                    <span class="message-text">{message.message}</span>
                 </div>
-                {/each}
             </div>
-        </div>
-        <div class="input">
-            <input bind:value="{input}" maxlength="1000" placeholder="write your message here"/>
-            <button on:click={send}>send</button>
-            <span>as</span>
-            <span style="{"color: " + color + "; font-weight: 600;"}">{username}</span>
-        </div>
-    </div>
-    <div class="info">
-        <div>
-            <img class="nyan" alt="nyan" src="nyan-cat.gif">
-        </div>
-        <span style="color: #ff3e00; font-size: 1.5rem; font-weight: 600;">Users:</span>
-        <div class="register">
-            {#each usersSorted as user}
-            <span style="{"color: " + color + ";"}">{user}</span><br>
             {/each}
         </div>
+    </div>
+    <div class="input">
+        <input bind:value={input} maxlength="1000" placeholder="write your message here"/>
+        <button on:click={send}>send</button>
+        <span>as</span>
+        <span style="{"color: " + color + "; font-weight: 600;"}">{username}</span>
     </div>
 </div>
 
 
 <style lang="scss">
-    .split-container {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        position: relative;
-        width: 100%;
-    }
     .chat {
         display: flex;
         flex-direction: column;
@@ -98,7 +124,7 @@
     }
     .msgs-container {
         position: relative;
-        background-color: #1e1e2f;
+        background-color: #202124;
         height: 35rem;
         width: 100%;
         padding-right: 0;
@@ -122,20 +148,12 @@
     .message-text-container {
         padding-left: 1em;
     }
-    .info {
-        background-color: #1e1e1c;
-        height: 35rem;
-        display: flex;
-        flex-direction: column;
-    }
     .input{
         padding: 1rem;
         font-size: 1.5rem;
     }
-    .register{
-        color: #ff3e00;
-        font-size: 1.5rem;
-        font-weight: 600;
-        overflow: auto;
-    }
+    /*.icon{
+        height: 2rem;
+        width: 2rem;
+    }*/
 </style>
