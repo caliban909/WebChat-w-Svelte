@@ -13,7 +13,7 @@ let users = [];
 
 app.use(express.static("public"));
 
-io.on("connection", function (socket) {
+io.on("connect", function (socket) {
     let addedUser = false;
     socket.on("add user", function(data) {
         addedUser = true;

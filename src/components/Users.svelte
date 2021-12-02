@@ -13,7 +13,6 @@
     //code to be executed when module is loaded
     onMount(() => {
         socket.on("users", function(users_){
-            console.log("test");
             users = users_;
         })
         users = [username,...users];
