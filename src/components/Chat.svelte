@@ -41,6 +41,7 @@
 
     //function handles messages and sends them to the server
     function send(){
+        input = input.trim();
         if(input.length <= 0) return;
         let data = {
             username: username,
