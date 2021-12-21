@@ -23,19 +23,22 @@
 
     //code to be executed when module is loaded
     onMount(() => {
+        //picks a random color on load
         color = color ?? colors[Math.floor(Math.random() * colors.length)][0];
+        //adding event listener
         window.addEventListener("keyup", submitEvent);
     })
 
     //code to be executed when module is unloaded
     onDestroy(() => {
+        //removing event listener
         window.removeEventListener("keyup", submitEvent);
     })
 
     //function handles username/color selection and sends it to websocket
     function submit() {
-        if (user.replaceAll(/\s+/g,'').length < 2) return;
-        user = user.trim().replaceAll(/\s+/g, ' ');
+        if (user.replace(/\s+/g,'').length < 2) return;
+        user = user.trim().replace(/\s+/g, ' ');
         username = user;
         let data = {
             username: username,

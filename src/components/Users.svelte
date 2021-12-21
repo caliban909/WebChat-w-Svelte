@@ -12,6 +12,7 @@
     
     //code to be executed when module is loaded
     onMount(() => {
+        //updates users array to server users array
         socket.on("users", function(users_){
             users = users_;
         })
