@@ -41,8 +41,8 @@
     </main>
 </body>
 
-
-<style lang="scss">
+<style lang="scss" global>
+    @import "css/svelte.variables.scss";
     body {
         background-color: #1C1B29;
     }
