@@ -70,16 +70,25 @@
     img{
         margin-top: 1rem;
     }
+    input {
+        background: #0D0D1E;
+        border: black;
+        color: #5CE1E6;
+        font-weight: bold;
+    }
     .container {
-        color: #ff3e00;
+        color: #5CE1E6;
         font-size: 2rem;
         font-weight: 500;
         user-select: none;
     }
     #confirm {
-        color: ghostwhite;
-        background-color: #202124;
-        padding: 1rem;       
+        background-color: #0D0D1E;
+        color: #5CE1E6;
+        font-weight: bold;
+        padding: 1rem;
+        border: solid 5px #5CE1E6;
+        border-radius: 30px;       
     }
     //moin
 </style>
