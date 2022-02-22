@@ -59,7 +59,7 @@
     }
     .wrapper {
         position: relative;
-        top: 5rem;
+        top: 2.5rem;
     }
     .split-container {
         display: flex;

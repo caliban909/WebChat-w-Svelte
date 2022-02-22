@@ -38,8 +38,9 @@
         display: inline-flex;
         flex-direction: column;
         background: #0D0D1E;
-        border: solid 5px #5CE1E6;
-        border-radius: 40px;
+        border: solid 5px;
+        border-radius: 35px;
+        margin
 
         & > span {
             padding: 0.5em;
