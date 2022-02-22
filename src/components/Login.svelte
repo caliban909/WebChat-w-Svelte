@@ -56,29 +56,93 @@
     }
 </script>
 
-
 <div class="container">
     <span style="font-size: 2.5rem;">please enter your username and choose your preferred color</span><br/><br/>
-    <input bind:value={user} maxlength="30" placeholder="Username" />
+    <div class="balken">&nbsp;</div>
+    <div class="box">
+        <input bind:value={user} maxlength="30" placeholder="Username" style="--color: {color}"/>
+        <button id="confirm" on:click={submit}>confirm</button>
+    </div>
     <div><Color bind:color/></div>
-    <img alt="lazor" src="lazor-dude.gif" /><br />
-    <button id="confirm" on:click={submit}>confirm</button>
 </div>
+<footer>
+    <div class="tabelle">
+        <ul>
+            <li>
+
+            </li>
+        </ul>
+    </div>
+        <div class="bild">
+            <img alt="lazor" src="lazor-dude.gif" /><br />
+        </div>
+</footer>
 
 
 <style lang="scss">
     img{
-        margin-top: 1rem;
+        border: solid 5px #43B581;
+        border-radius: 50px;
+        margin-bottom: 25px;
+    }
+    input {
+        background: #0D0D1E;
+        border: solid 5px #43B581;
+        border-radius: 30px;
+        color: var(--color);
+        font-weight: bold;
+        outline-style: none;
+        margin-top: 1%;
+        margin-right: 15%;
+        
+    }
+    input::placeholder{
+        opacity: 0.7;
+        color: var(--color);
     }
     .container {
-        color: #ff3e00;
+        color: #43B581;
         font-size: 2rem;
         font-weight: 500;
         user-select: none;
     }
-    #confirm {
-        color: ghostwhite;
-        background-color: #202124;
-        padding: 1rem;       
+    .balken {
+        background: #404EED;
+        height: 5px;
+        padding: 0;
+        margin-bottom: 3%;
+        }
+    .box {
+        display:flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-evenly;
     }
+    .bild {
+        margin: 0;
+        justify-content: left;
+    }
+    #confirm {
+        background-color: #0D0D1E;
+        border: solid 5px #43B581;
+        border-radius: 30px;       
+        color: #43B581;
+        font-weight: bold;
+        outline-style: none;
+        padding: 1rem;
+        width: 28.85rem;
+        margin-top: 1%;
+    }
+    footer{
+        background: #404EED;
+        padding: 0;
+        margin-top: 79px;
+    }
+    .tabelle {
+        font-size: 20px;
+        color: ghostwhite;
+        font-weight: bold;
+    }
+
+    //moin
 </style>

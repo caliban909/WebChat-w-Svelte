@@ -22,10 +22,10 @@
     <main>
         <div class="container">
             <h2 class="title">
-                <span class="title-word title-word-1">One</span>
-                <span class="title-word title-word-2">Two</span>
-                <span class="title-word title-word-3">Three</span>
-                <span class="title-word title-word-4">FOUR!!!</span>
+                <span class="title-word title-word-1">In</span>
+                <span class="title-word title-word-2">The</span>
+                <span class="title-word title-word-3">Beninging</span>
+                <span class="title-word title-word-4">YEEE!!!</span>
             </h2>
         </div>
         <div class="wrapper">
@@ -44,7 +44,7 @@
 <style lang="scss" global>
     @import "css/svelte.variables.scss";
     body {
-        background-color: $primary;
+        background-color: #1C1B29;
     }
     main {
         text-align: center;
@@ -59,7 +59,7 @@
     }
     .wrapper {
         position: relative;
-        top: 5rem;
+        top: 2.5rem;
     }
     .split-container {
         display: flex;

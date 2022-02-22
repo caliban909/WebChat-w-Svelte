@@ -34,11 +34,13 @@
 <style lang="scss">
     .container{
         font-size: 20px;
+        font-weight: bold;
         display: inline-flex;
         flex-direction: column;
-        background: #202124;
-        border: solid 1px black;
-        border-radius: 4px;
+        background: #0D0D1E;
+        border: solid 5px;
+        border-radius: 35px;
+        margin
 
         & > span {
             padding: 0.5em;
