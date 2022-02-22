@@ -41,10 +41,10 @@
     </main>
 </body>
 
-
-<style lang="scss">
+<style lang="scss" global>
+    @import "css/svelte.variables.scss";
     body {
-        background-color: #fff7d6;
+        background-color: $primary;
     }
     main {
         text-align: center;
