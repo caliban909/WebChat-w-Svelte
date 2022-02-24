@@ -2,4 +2,8 @@
 /public/build/
 /package-lock.json/
 
+.cache
+dist
+.env
+
 .DS_Store
