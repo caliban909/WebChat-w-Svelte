@@ -68,7 +68,6 @@
 
 
 <style lang="scss">
-
     input {
         background: #0f0f24;
         border: solid 5px #43B581;
@@ -90,16 +89,11 @@
         font-weight: 500;
         user-select: none;
     }
-
     .box {
         display:flex;
         flex-direction: row;
         width: 100%;
         justify-content: space-evenly;
-    }
-    .bild {
-        margin: 0;
-        justify-content: left;
     }
     #confirm {
         background-color: #0f0f24;
@@ -112,6 +106,5 @@
         width: 28.85rem;
         margin-top: 1%;
     }
-
     //moin
 </style>

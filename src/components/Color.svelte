@@ -42,8 +42,6 @@
         background: #0f0f24;
         border: solid 5px;
         border-radius: 17.5px;
-        margin
-
         & > span {
             padding: 0.5em;
             padding-bottom: 0;;

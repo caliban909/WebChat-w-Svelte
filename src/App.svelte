@@ -66,12 +66,4 @@
         position: relative;
         width: 100%;
     }
-
-    /* Here are just some visual styles. 🖌 */
-    .title {
-        font-family: "Montserrat", sans-serif;
-        font-weight: 800;
-        font-size: 3.5vw;
-        text-transform: uppercase;
-    }
 </style>

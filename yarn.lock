@@ -1347,7 +1347,12 @@
   "resolved" "https://registry.npmjs.org/prepend-http/-/prepend-http-2.0.0.tgz"
   "version" "2.0.0"
 
-"prettier@^2.5.1":
+"prettier-plugin-svelte@^2.6.0":
+  "integrity" "sha512-NPSRf6Y5rufRlBleok/pqg4+1FyGsL0zYhkYP6hnueeL1J/uCm3OfOZPsLX4zqD9VAdcXfyEL2PYqGv8ZoOSfA=="
+  "resolved" "https://registry.npmjs.org/prettier-plugin-svelte/-/prettier-plugin-svelte-2.6.0.tgz"
+  "version" "2.6.0"
+
+"prettier@^1.16.4 || ^2.0.0", "prettier@^2.5.1":
   "integrity" "sha512-vBZcPRUR5MZJwoyi3ZoyQlc1rXeEck8KgeC9AwwOn+exuxLxq5toTRDTSaVrXHxelDMHy9zlicw8u66yxoSUFg=="
   "resolved" "https://registry.npmjs.org/prettier/-/prettier-2.5.1.tgz"
   "version" "2.5.1"
@@ -1843,7 +1848,7 @@
     "sorcery" "^0.10.0"
     "strip-indent" "^3.0.0"
 
-"svelte@^3.0.0", "svelte@^3.23.0", "svelte@^3.24.0", "svelte@>=3.5.0":
+"svelte@^3.0.0", "svelte@^3.2.0", "svelte@^3.23.0", "svelte@^3.24.0", "svelte@>=3.5.0":
   "integrity" "sha512-jrZhZtmH3ZMweXg1Q15onb8QlWD+a5T5Oca4C1jYvSURp2oD35h4A5TV6t6MEa93K4LlX6BkafZPdQoFjw/ylA=="
   "resolved" "https://registry.npmjs.org/svelte/-/svelte-3.44.2.tgz"
   "version" "3.44.2"
