@@ -1,33 +1,35 @@
+<!--
+  Liveticker Module
+-->
 
-<body>
-    <div class="ticker-wrap">
-        <div class="ticker">
-        <div class="ticker__item" sytle="color: red;">Good Day, Breaking news:</div>
-          <div class="ticker__item">Genesise one Verse one</div>
-          <div class="ticker__item">in the beninging</div>
-          <div class="ticker__item">in the</div>
-          <div class="ticker__item">in the benii</div>
-          <div class="ticker__item">in the beninging</div>
-          <div class="ticker__item">yeah</div>
-          <div class="ticker__item">in the</div>
-          <div class="ticker__item">i-in</div>
-          <div class="ticker__item">ah</div>
-          <div class="ticker__item">in the</div>
-          <div class="ticker__item">(listen proper)</div>
-          <div class="ticker__item">in</div>
-          <div class="ticker__item">inne the beninging</div>
-          <div class="ticker__item">yee</div>
-          <div class="ticker__item">in in</div>
-          <div class="ticker__item">inne the beninging</div>
-          <div class="ticker__item">inne the beniiingii</div>
-          <div class="ticker__item">inne</div>
-          <div class="ticker__item">iin in</div>
-          <div class="ticker__item">ingi the</div>
-          <div class="ticker__item">inne the beninging</div>
-    </div>
+<script lang="ts"></script>
 
-</body>
-
+<div class="ticker-wrap">
+  <div class="ticker">
+    <div class="ticker__item" style="color: red;">Good Day, Breaking news:</div>
+    <div class="ticker__item">Genesise one Verse one</div>
+    <div class="ticker__item">in the beninging</div>
+    <div class="ticker__item">in the</div>
+    <div class="ticker__item">in the benii</div>
+    <div class="ticker__item">in the beninging</div>
+    <div class="ticker__item">yeah</div>
+    <div class="ticker__item">in the</div>
+    <div class="ticker__item">i-in</div>
+    <div class="ticker__item">ah</div>
+    <div class="ticker__item">in the</div>
+      <div class="ticker__item">(listen proper)</div>
+      <div class="ticker__item">in</div>
+      <div class="ticker__item">inne the beninging</div>
+      <div class="ticker__item">yee</div>
+      <div class="ticker__item">in in</div>
+      <div class="ticker__item">inne the beninging</div>
+      <div class="ticker__item">inne the beniiingii</div>
+      <div class="ticker__item">inne</div>
+      <div class="ticker__item">iin in</div>
+      <div class="ticker__item">ingi the</div>
+      <div class="ticker__item">inne the beninging</div>
+  </div>
+</div>
 
 <style lang="scss">
 // * { box-sizing: border-box; }

@@ -9,8 +9,7 @@
     import io from "./components/socket.io";
     import Header from "./components/Header.svelte";
     import Sidebar from "./components/Sidebar.svelte";
-    //import Liveticker from "./components/Liveticker.svelte";
-    
+    import Liveticker from "./components/Liveticker.svelte";    
 
     export let username: string | null;
     export let color: string | null;
@@ -24,16 +23,16 @@
 </svelte:head>
 <body>
     <main>
-        <Header></Header>
+        <Header />
         <div class="wrapper">
             {#if username === null}
                 <Login bind:username bind:color {socket} />
-            {:else}c
+            {:else}
                 <div class="split-container">
                     <Chat {username} {color} {socket}/>
                     <Users {username} {socket}/>
-                    <!--<Liveticker />-->
                     <Sidebar />
+                    <Liveticker />
                 </div>
             {/if}
         </div>
