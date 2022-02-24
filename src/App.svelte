@@ -1,26 +1,24 @@
 <!--
     Main App  -  I will never lose this feeling
 -->
-
 <script lang="ts">
-    import Login from "./components/Login.svelte";
-    import Chat from "./components/Chat.svelte";
-    import Users from "./components/Users.svelte";
-    import io from "./components/socket.io";
-    import Header from "./components/Header.svelte";
-    import Sidebar from "./components/Sidebar.svelte";
-    import Liveticker from "./components/Liveticker.svelte";
-    
+  import Login from "./components/Login.svelte";
+  import Chat from "./components/Chat.svelte";
+  import Users from "./components/Users.svelte";
+  import io from "./components/socket.io";
+  import Header from "./components/Header.svelte";
+  import Sidebar from "./components/Sidebar.svelte";
+  import Liveticker from "./components/Liveticker.svelte";
 
-    export let username: string | null;
-    export let color: string | null;
-    
-    //initialising websocket
-    let socket = io();
+  export let username: string | null;
+  export let color: string | null;
+
+  //initialising websocket
+  let socket = io();
 </script>
 
 <svelte:head>
-    <title>Web-Chat</title>
+  <title>Web-Chat</title>
 </svelte:head>
 <body>
     <main>
@@ -37,42 +35,36 @@
                 </div>
             {/if}
         </div>
-    </main>
+      {/if}
+    </div>
+  </main>
 </body>
 
 <style lang="scss" global>
-    @import "css/svelte.variables.scss";
-    body {
-        background-color: #1C1B29;
-    }
+  @import "css/svelte.variables.scss";
+  body {
+    background-color: #1c1b29;
+  }
+  main {
+    text-align: center;
+    padding-top: 0;
+    max-width: 240px;
+    margin: 0;
+  }
+  @media (min-width: 640px) {
     main {
-        text-align: center;
-        padding-top: 0;
-        max-width: 240px;
-        margin: 0;
+      max-width: none;
     }
-    @media (min-width: 640px) {
-        main {
-            max-width: none;
-        }
-    }
-    .wrapper {
-        position: relative;
-        top: 2.5rem;
-    }
-    .split-container {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        position: relative;
-        width: 100%;
-    }
-
-    /* Here are just some visual styles. 🖌 */
-    .title {
-        font-family: "Montserrat", sans-serif;
-        font-weight: 800;
-        font-size: 3.5vw;
-        text-transform: uppercase;
-    }
+  }
+  .wrapper {
+    position: relative;
+    top: 2.5rem;
+  }
+  .split-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+    width: 100%;
+  }
 </style>
