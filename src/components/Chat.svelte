@@ -6,6 +6,9 @@
     import { onMount } from 'svelte';
     import { onDestroy } from 'svelte';
 
+    
+    
+
     export let username: string|null;
     export let color: string|null;
     export let socket: any;
@@ -108,10 +111,10 @@
         </div>
     </div>
     <div class="input">
-        <input bind:value={input} maxlength="1000" placeholder="write your message here"/>
-        <button on:click={send}>send</button>
-        <span>as</span>
-        <span style="{"color: " + color + "; font-weight: 600;"}">{username}</span>
+        <input class="write" bind:value={input} maxlength="1000" placeholder="write your message here" style="--color: {color}"/>
+        <button class="sendebutton" style="--color: {color}" on:click={send}>send</button>
+        <!--<span>as</span>
+        <span style="{"color: " + color}">{username}</span>-->
     </div>
 </div>
 
@@ -125,11 +128,35 @@
     }
     .msgs-container {
         position: relative;
-        background-color: #202124;
+        margin-left: 7em;
+        background-color: #0f0f24;
         height: 35rem;
-        width: 100%;
+        width: 95%;
         padding-right: 0;
+        border: solid 10px #404EED;
+        border-radius: 5px;
     }
+
+    //Scrollbar
+
+    ::-webkit-scrollbar {
+        width: 7px;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: white; 
+        border-radius: 50px;
+    }
+
+    ///* Handle on hover */
+    //::-webkit-scrollbar-thumb:hover {
+    //    background: var(--color); 
+    //}
+    
+    //Scrollbar end
+
+
     .messages {
         position: relative;
         color: white;
@@ -142,6 +169,7 @@
         font-size: 2rem;
         font-weight: 200;
         padding-left: 0.5em;
+
     }
     .username {
         font-weight: bold;
@@ -150,9 +178,35 @@
         padding-left: 1em;
     }
     .input{
+        position: relative;
         padding: 1rem;
+        left: 7rem;
         font-size: 1.5rem;
+        float: left;
+        width: 93.5%;
+        top: 2.1rem;
+        background-color: #0f0f24;
+        border: solid 5px #404EED;
+        border-radius: 8.5px;
     }
+    .sendebutton {
+        font-weight: bold;
+        background-color: #0f0f24;
+        border: solid 2px #404EED;
+        border-radius: 7.5px;       
+        color: var(--color);
+        outline-style: none;
+
+    }
+    .write {
+        width: 80%;
+        background-color: #0f0f24;
+        border: solid 2px #404EED;
+        border-radius: 7.5px;       
+        color: var(--color);
+        outline-style: none;
+    }
+
     /*.icon{
         height: 2rem;
         width: 2rem;

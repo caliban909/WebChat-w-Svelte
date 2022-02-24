@@ -5,13 +5,15 @@
 <script lang="ts">
     export let color: string | null;
     export let colors: [string, string][] = [
-        ["#0fbddf", "Blue"],
-        ["#9fdf9f", "Green"],
-        ["#8cd9c6", "Turquoise"],
-        ["#af9fdf", "Purple"],
-        ["#df9f9f", "Pink"],
-        ["goldenrod", "Gold"],
+        
+
+        ["#00ffbf", "Turquoise"],
+        ["#34FF01", "Green"],
+        ["#0198FF", "Blue"],
         ["blueviolet", "Nice"],
+        ["#ff1a8c", "Pink"],
+        ["#FF0000", "Red"],
+        ["goldenrod", "Gold"],
     ];
 
     $: pair = colors.find((cl) => cl[0] === color);
@@ -37,9 +39,9 @@
         font-weight: bold;
         display: inline-flex;
         flex-direction: column;
-        background: #0D0D1E;
+        background: #0f0f24;
         border: solid 5px;
-        border-radius: 35px;
+        border-radius: 17.5px;
         margin
 
         & > span {
