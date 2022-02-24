@@ -6,17 +6,18 @@
     import Color from "./Color.svelte";
     import { onDestroy } from "svelte";
 
+
     export let socket: any;
     export let username: string | null;
     export let color: string | null;
     export let colors: [string, string][] = [
-        ["#0fbddf", "Blue"],
-        ["#9fdf9f", "Green"],
-        ["#8cd9c6", "Turquoise"],
-        ["#af9fdf", "Purple"],
-        ["#df9f9f", "Pink"],
-        ["goldenrod", "Gold"],
+        ["#00ffbf", "Turquoise"],
+        ["#34FF01", "Green"],
+        ["#0198FF", "Blue"],
         ["blueviolet", "Nice"],
+        ["#ff1a8c", "Pink"],
+        ["#FF0000", "Red"],
+        ["goldenrod", "Gold"],
     ]
 
     let user = "";
@@ -55,40 +56,23 @@
         }
     }
 </script>
-
 <div class="container">
     <span style="font-size: 2.5rem;">please enter your username and choose your preferred color</span><br/><br/>
-    <div class="balken">&nbsp;</div>
     <div class="box">
         <input bind:value={user} maxlength="30" placeholder="Username" style="--color: {color}"/>
         <button id="confirm" on:click={submit}>confirm</button>
     </div>
     <div><Color bind:color/></div>
 </div>
-<footer>
-    <div class="tabelle">
-        <ul>
-            <li>
 
-            </li>
-        </ul>
-    </div>
-        <div class="bild">
-            <img alt="lazor" src="lazor-dude.gif" /><br />
-        </div>
-</footer>
 
 
 <style lang="scss">
-    img{
-        border: solid 5px #43B581;
-        border-radius: 50px;
-        margin-bottom: 25px;
-    }
+
     input {
-        background: #0D0D1E;
+        background: #0f0f24;
         border: solid 5px #43B581;
-        border-radius: 30px;
+        border-radius: 12.5px;
         color: var(--color);
         font-weight: bold;
         outline-style: none;
@@ -106,12 +90,7 @@
         font-weight: 500;
         user-select: none;
     }
-    .balken {
-        background: #404EED;
-        height: 5px;
-        padding: 0;
-        margin-bottom: 3%;
-        }
+
     .box {
         display:flex;
         flex-direction: row;
@@ -123,25 +102,15 @@
         justify-content: left;
     }
     #confirm {
-        background-color: #0D0D1E;
+        background-color: #0f0f24;
         border: solid 5px #43B581;
-        border-radius: 30px;       
+        border-radius: 12.5px;       
         color: #43B581;
         font-weight: bold;
         outline-style: none;
         padding: 1rem;
         width: 28.85rem;
         margin-top: 1%;
-    }
-    footer{
-        background: #404EED;
-        padding: 0;
-        margin-top: 79px;
-    }
-    .tabelle {
-        font-size: 20px;
-        color: ghostwhite;
-        font-weight: bold;
     }
 
     //moin
