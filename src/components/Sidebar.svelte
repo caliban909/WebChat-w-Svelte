@@ -3,7 +3,7 @@
     <a href="#raum2">2</a>
     <a href="#raum3">3</a>
     <a href="#raum4">4</a>
-    <i class="fa-solid fa-gear"></i>
+    
   </div>
 
 <style lang="scss">
