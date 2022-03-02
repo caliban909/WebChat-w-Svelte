@@ -21,19 +21,17 @@
   <title>Web-Chat</title>
 </svelte:head>
 <body>
-    <main>
-        <Header></Header>
-        <div class="wrapper">
-            {#if username === null}
-                <Login bind:username bind:color {socket} />
-            {:else}c
-                <div class="split-container">
-                    <Chat {username} {color} {socket}/>
-                    <Users {username} {socket}/>
-                    <Liveticker />
-                    <Sidebar />
-                </div>
-            {/if}
+  <main>
+    <Header />
+    <div class="wrapper">
+      {#if username === null}
+        <Login bind:username bind:color {socket} />
+      {:else}c
+        <div class="split-container">
+          <Chat {username} {color} {socket} />
+          <Users {username} {socket} />
+          <Liveticker />
+          <Sidebar />
         </div>
       {/if}
     </div>
