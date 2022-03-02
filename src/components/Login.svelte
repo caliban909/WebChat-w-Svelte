@@ -87,6 +87,7 @@
     opacity: 0.7;
     color: var(--color);
   }
+
   .container {
     color: #43b581;
     font-size: 2rem;

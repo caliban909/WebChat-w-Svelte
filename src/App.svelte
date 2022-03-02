@@ -9,6 +9,7 @@
   import Header from "./components/Header.svelte";
   import Sidebar from "./components/Sidebar.svelte";
   import Liveticker from "./components/Liveticker.svelte";
+  import Footer from "./components/Footer.svelte";
 
   export let username: string | null;
   export let color: string | null;
@@ -21,22 +22,22 @@
   <title>Web-Chat</title>
 </svelte:head>
 <body>
-    <main>
-        <Header></Header>
-        <div class="wrapper">
-            {#if username === null}
-                <Login bind:username bind:color {socket} />
-            {:else}c
-                <div class="split-container">
-                    <Chat {username} {color} {socket}/>
-                    <Users {username} {socket}/>
-                    <Liveticker />
-                    <Sidebar />
-                </div>
-            {/if}
+  <main>
+    <Header />
+    <div class="wrapper">
+      {#if username === null}
+        <Login bind:username bind:color {socket} />
+        <Footer />
+      {:else}
+        <div class="split-container">
+          <Chat {username} {color} {socket} />
+          <Users {username} {socket} />
+          <Liveticker />
+          <Sidebar />
         </div>
       {/if}
     </div>
+    <div />
   </main>
 </body>
 
@@ -44,6 +45,7 @@
   @import "css/svelte.variables.scss";
   body {
     background-color: #1c1b29;
+    padding: 0;
   }
   main {
     text-align: center;
