@@ -8,7 +8,7 @@
     ["#34FF01", "Spotify.pe"],
     ["#0198FF", "SAP.pe"],
     ["blueviolet", "FedEx.pe"],
-    ["#ff1a8c", "Telekom.peno one"],
+    ["#ff1a8c", "Telekom.pe"],
     ["#FF0000", "Primebasic.eu"],
     ["goldenrod", "Metro.pe"],
     ["ghostwhite", "Wikipedia.org"],
@@ -33,6 +33,7 @@
 </div>
 
 <style lang="scss">
+  @import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300&display=swap");
   .container {
     font-size: 20px;
     font-weight: bold;

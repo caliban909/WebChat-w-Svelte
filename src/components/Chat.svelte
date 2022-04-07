@@ -94,7 +94,7 @@
 
 <div class="chat">
   <div class="msgs-container">
-    <div class="messages">
+    <div data-aos="fade-right" class="messages">
       {#each messages as message}
         <div class="message">
           <!--<img class="icon" src="doomer.jpg" alt="doomer">-->
@@ -126,6 +126,7 @@
 </div>
 
 <style lang="scss">
+  @import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300&display=swap");
   .chat {
     display: flex;
     flex-direction: column;
@@ -177,9 +178,11 @@
   }
   .username {
     font-weight: bold;
+    font-family: "Fredoka", sans-serif;
   }
   .message-text-container {
     padding-left: 1em;
+    font-family: "Fredoka", sans-serif;
   }
   .input {
     position: relative;
@@ -192,6 +195,7 @@
     background-color: #0f0f24;
     border: solid 5px #404eed;
     border-radius: 8.5px;
+    font-family: "Fredoka", sans-serif;
   }
   .emojis {
     background-color: #0f0f24;

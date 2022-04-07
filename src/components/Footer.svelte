@@ -1,8 +1,9 @@
+<script>
+</script>
+
 <footer>
   <div class="tabelle">
-    <ul>
-      <li />
-    </ul>
+    <ul><a href="./components/Datenschutz.svelte">Datenschutz</a></ul>
   </div>
   <div class="bild">
     <img alt="lazor" src="lazor-dude.gif" /><br />
@@ -16,6 +17,7 @@
 
 <style lang="scss">
   @import "../css/svelte.variables.scss";
+  @import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300&display=swap");
 
   img {
     border: solid 5px #43b581;
@@ -24,7 +26,8 @@
   footer {
     background: #003f7c;
     padding: 0;
-    margin-top: 8.65rem;
+    margin-top: 9.86rem;
+    box-sizing: content-box;
   }
   .bild {
     background: $blauerton;
@@ -33,6 +36,7 @@
     font-size: 20px;
     color: ghostwhite;
     font-weight: bold;
+    font-family: "Fredoka", sans-serif;
   }
 
   //Wave Animation
@@ -55,7 +59,7 @@
     width: 200000%;
     height: 100%;
     animation: wave 10000s -3000s linear infinite;
-    transform: translate3d(0, 0, 0);
+    //transform: translate3d(0, 0, 0);
     background-repeat: repeat no-repeat;
     opacity: 0.9;
   }

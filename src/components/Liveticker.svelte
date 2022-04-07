@@ -51,6 +51,7 @@
 </div>
 
 <style lang="scss">
+  @import url("https://fonts.googleapis.com/css2?family=BhuTuka+Expanded+One&family=Fredoka:wght@300&display=swap");
   // * { box-sizing: border-box; }
   $duration: 50s;
 
@@ -89,6 +90,7 @@
     background-color: rgba(#000, 0.9);
     padding-left: 100%;
     box-sizing: content-box;
+    font-family: "Fredoka", sans-serif;
 
     .ticker {
       display: inline-block;

@@ -6,6 +6,7 @@
 </div>
 
 <style lang="scss">
+  @import url("https://fonts.googleapis.com/css2?family=BhuTuka+Expanded+One&family=Fredoka:wght@300&display=swap");
   .sidenav {
     height: 86.25%;
     width: 4%;
@@ -17,6 +18,7 @@
     overflow-x: hidden;
     padding-top: 50px;
     border-right: solid 10px #404eed;
+    font-family: "Fredoka", sans-serif;
   }
   .sidenav a {
     padding: 6px 8px 6px 16px;

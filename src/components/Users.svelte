@@ -36,6 +36,7 @@
 </div>
 
 <style lang="scss">
+  @import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300&display=swap");
   .info {
     background-color: #0f0f24;
     height: 43.9rem;
@@ -45,6 +46,7 @@
     border: solid 10px #404eed;
     border-radius: 5px;
     flex-direction: column;
+    font-family: "Fredoka", sans-serif;
     .inthe {
       border-bottom: solid 5px #404eed;
       width: 22.5rem;

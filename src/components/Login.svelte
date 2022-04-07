@@ -10,13 +10,14 @@
   export let username: string | null;
   export let color: string | null;
   export let colors: [string, string][] = [
-    ["#00ffbf", "Turquoise"],
-    ["#34FF01", "Green"],
-    ["#0198FF", "Blue"],
-    ["blueviolet", "Nice"],
-    ["#ff1a8c", "Pink"],
-    ["#FF0000", "Red"],
-    ["goldenrod", "Gold"],
+    ["#00ffbf", "Siemens.pe"],
+    ["#34FF01", "Spotify.pe"],
+    ["#0198FF", "SAP.pe"],
+    ["blueviolet", "FedEx.pe"],
+    ["#ff1a8c", "Telekom.pe"],
+    ["#FF0000", "Primebasic.eu"],
+    ["goldenrod", "Metro.pe"],
+    ["ghostwhite", "Wikipedia.org"],
   ];
 
   let user = "";
@@ -73,6 +74,7 @@
 </div>
 
 <style lang="scss">
+  @import url("https://fonts.googleapis.com/css2?family=BhuTuka+Expanded+One&family=Fredoka:wght@300&display=swap");
   input {
     background: #0f0f24;
     border: solid 5px #43b581;
@@ -82,10 +84,12 @@
     outline-style: none;
     margin-top: 1%;
     margin-right: 15%;
+    font-family: "Fredoka", sans-serif;
   }
   input::placeholder {
     opacity: 0.7;
     color: var(--color);
+    font-family: "Fredoka", sans-serif;
   }
 
   .container {
@@ -93,12 +97,15 @@
     font-size: 2rem;
     font-weight: 500;
     user-select: none;
+    font-family: "Fredoka", sans-serif;
+    flex-wrap: nowrap;
   }
   .box {
     display: flex;
     flex-direction: row;
     width: 100%;
     justify-content: space-evenly;
+    font-family: "Fredoka", sans-serif;
   }
   #confirm {
     background-color: #0f0f24;

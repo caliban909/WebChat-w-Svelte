@@ -10,6 +10,7 @@
 </body>
 
 <style lang="scss">
+  @import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300&display=swap");
   body {
     background: #0f0f24;
     outline-style: none;
@@ -29,6 +30,7 @@
     font-size: 4.5rem;
     font-weight: bold;
     margin-top: 2rem;
+    font-family: "Fredoka", sans-serif;
   }
   .title-word-1 {
     --color-1: #df8453;
