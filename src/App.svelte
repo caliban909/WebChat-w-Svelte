@@ -26,7 +26,7 @@
     <div class="wrapper">
       {#if username === null}
         <Login bind:username bind:color {socket} />
-      {:else}c
+      {:else}
         <div class="split-container">
           <Chat {username} {color} {socket} />
           <Users {username} {socket} />
