@@ -8,7 +8,7 @@
   import io from "./components/socket.io";
   import Header from "./components/Header.svelte";
   import Sidebar from "./components/Sidebar.svelte";
-  import Liveticker from "./components/Liveticker.svelte";
+  //import Liveticker from "./components/Liveticker.svelte";
   import Footer from "./components/Footer.svelte";
 
   export let username: string | null;
@@ -32,7 +32,7 @@
         <div class="split-container">
           <Chat {username} {color} {socket} />
           <Users {username} {socket} />
-          <Liveticker />
+          <!--<Liveticker />-->
           <Sidebar />
         </div>
       {/if}

@@ -1,10 +1,10 @@
 <scrip />
 <body>
   <div class="container">
-    <span class="title-word title-word-1">In</span>
-    <span class="title-word title-word-2">The</span>
-    <span class="title-word title-word-3">Beninging</span>
-    <span class="title-word title-word-4">YEEE!!!</span>
+    <span class="title-word title-word-1">Beispiel</span>
+    <span class="title-word title-word-2">Chat</span>
+    <span class="title-word title-word-3">Programm</span>
+    <span class="title-word title-word-4">BBW</span>
   </div>
   <div class="balken">&nbsp;</div>
 </body>
